@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Window</title>
+  <style>
+
+    @font-face {
+      font-family: 'calamity';
+      src: url('calamity.ttf');
+    }
+
+    @font-face {
+      font-family: 'BWHaasText';
+      src: url('BWHaasText-55Roman.otf');
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    .blank-page {
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: relative;
+      font-size: 100px;
+      font-family: calamity;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      animation: fadeIn 2s ease-in-out; /* Adjust duration as needed */
+    }
+    
+    p {
+      animation: fadeIn 5s ease-in-out; /* Adjust duration as needed */
+    }
+
+    .blank-page a {
+      animation: fadeIn 5s ease-in-out; /* Adjust duration as needed */
+    }
+
+    button {
+      animation: fadeIn 5s ease-in-out; /* Adjust duration as needed */
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100vh;
+      border-top: 1px solid white; /* Black outer border */
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background-color: black;
+      font-family: BWHaasText;
+    }
+
+    .section a {
+        text-decoration: none;
+      font-size: 20px;
+      color: white;
+      font-family: BWHaasText;
+
+    }
+
+    .section:nth-child(1), .section:nth-child(2) {
+      border-bottom: 1px solid white;
+    }
+
+    .section:nth-child(1), .section:nth-child(3) {
+      border-right: 1px solid white;
+    }
+
+    .about-link {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-family: BWHaasText;
+
+      transition: background-color 0.3s ease;
+    }
+
+    .scroll-btn {
+      position: absolute;
+      bottom: 60px;
+
+      background-color: black;
+      border: none;
+      cursor: pointer;
+
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-family: BWHaasText;
+
+      transition: background-color 0.3s ease;
+    }
+
+    .down {
+        position: absolute;
+        bottom: 30px;
+        font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Initial blank page with scroll button and About link -->
+<div class="blank-page">
+    <h1>Virtual Window</h1>
+    <a href="about.html" class="about-link">(About)</a>
+    <button class="scroll-btn" onclick="scrollToContent()">Click To Scroll Down</button>
+    <p class="down">▼</p>
+</div>
+
+<!-- Sections container -->
+<div class="container">
+  <div class="section">
+    <a href="land.html">(Land)</a>
+  </div>
+
+  <div class="section">
+    <a href="water.html">(Water)</a>
+  </div>
+
+  <div class="section">
+    <a href="sky.html">(Sky)</a>
+  </div>
+
+  <div class="section">
+    <a href="animal.html">(Animal)</a>
+  </div>
+</div>
+
+<script>
+  function scrollToContent() {
+    document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
